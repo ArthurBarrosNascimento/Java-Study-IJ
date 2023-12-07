@@ -20,7 +20,7 @@ public class Main {
            System.out.println("Input Error");
        }
 
-       System.out.println("End of program");
+       System.out.println("End of progxxx'x'ram");
 
        sc.close();
     }
