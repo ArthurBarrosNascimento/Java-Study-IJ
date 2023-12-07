@@ -54,7 +54,6 @@ public class ProgramExe3 {
             System.out.println(taxPeyers.getName() +": $ " + taxPeyers.tax());
             sum += taxPeyers.tax();
         }
-        
         System.out.println();
         System.out.println("TOTAL TAXES: $ " + sum);
 
