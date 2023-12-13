@@ -1,27 +1,19 @@
-import java.util.InputMismatchException;
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-       Scanner sc  = new Scanner(System.in);
+        File file = new File("C:\\Users\\arthu\\Documents\\in.txt");
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
-       try {
-           String[] vect = sc.nextLine().split(" ");
-           int position = sc.nextInt();
-
-           System.out.println(vect[position]);
-       }
-       catch (ArrayIndexOutOfBoundsException e) {
-           System.out.println("Invalid Position");
-       }
-       catch (InputMismatchException e) {
-           System.out.println("Input Error");
-       }
-
-       System.out.println("End of progxxx'x'ram");
-
-       sc.close();
     }
 }   
