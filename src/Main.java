@@ -5,18 +5,36 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        String[] lines = new String[] {"Good mornig", "Good afternoon", "Good nigth"};
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Type a folder path: ");
+       String stfPath = sc.nextLine();
 
+       File path = new File(stfPath);
 
-        String path = "C:\\Users\\arthu\\Documents\\out.txt";
+       File[] folders = path.listFiles(File::isDirectory);
+       System.out.println("FOLDERS:");
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-            for (String line: lines) {
-                bw.write(line);
-                bw.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+       for (File folder: folders) {
+           System.out.println(folder);
+       }
+
+       System.out.println();
+
+       File[] files = path.listFiles(File::isFile);
+       System.out.println("FILES:");
+
+        for (File file: files) {
+            System.out.println(file);
         }
+
+        boolean success = new File(stfPath + "\\subdir").mkdir();
+        System.out.println("Directory created successfuly: " + success);
+
+        folders = path.listFiles(File::isDirectory);
+        for (File folder: folders) {
+            System.out.println(folder);
+        }
+
+       sc.close();
     }
 }   
