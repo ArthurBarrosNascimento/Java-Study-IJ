@@ -1,24 +1,22 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        String path = "C:\\Users\\arthu\\Documents\\in.txt";
+        String[] lines = new String[] {"Good mornig", "Good afternoon", "Good nigth"};
 
-        try (BufferedReader br = new BufferedReader(new FileReader(path))){
-            String line = br.readLine();
 
-            while (line != null) {
-                System.out.println(line);
-                line = br.readLine();
+        String path = "C:\\Users\\arthu\\Documents\\out.txt";
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+            for (String line: lines) {
+                bw.write(line);
+                bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }   
