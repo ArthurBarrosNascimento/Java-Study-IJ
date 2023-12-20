@@ -5,25 +5,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> myInts = Arrays.asList(1, 2, 3, 4);
-        List<Double> myDoubles = Arrays.asList(3.14, 6.28);
-        List<Object> myObject = new ArrayList<Object>();
-
-        copy(myInts, myObject);
-        printList(myObject);
-        copy(myDoubles, myObject);
-        printList(myObject);
-
+        String a = "Maria";
+        String b = "Alex";
+        System.out.println(a.hashCode());
+        System.out.println(b.hashCode());
     }
-
-    public static void copy(List<? extends Number> source, List<? super Number> destiny) {
-        destiny.addAll(source);
-     }
-
-     public static void printList(List<?> list) {
-        for (Object obj: list) {
-            System.out.print(obj + " ");
-        }
-         System.out.println();
-     }
 }   
