@@ -1,21 +1,29 @@
-import java.io.*;
-import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-      Scanner sc = new Scanner(System.in);
+        List<Integer> myInts = Arrays.asList(1, 2, 3, 4);
+        List<Double> myDoubles = Arrays.asList(3.14, 6.28);
+        List<Object> myObject = new ArrayList<Object>();
 
-      System.out.print("Enter a file path: ");
-      String strPath = sc.nextLine();
+        copy(myInts, myObject);
+        printList(myObject);
+        copy(myDoubles, myObject);
+        printList(myObject);
 
-      File path = new File(strPath);
-
-      System.out.println("getName: " + path.getName());
-      System.out.println("getParant: " + path.getParent());
-      System.out.println("getPath: " + path.getPath());
-
-      sc.close();
     }
+
+    public static void copy(List<? extends Number> source, List<? super Number> destiny) {
+        destiny.addAll(source);
+     }
+
+     public static void printList(List<?> list) {
+        for (Object obj: list) {
+            System.out.print(obj + " ");
+        }
+         System.out.println();
+     }
 }   
