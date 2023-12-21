@@ -1,21 +1,27 @@
 package application;
 
-import java.util.HashSet;
-
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import entities.Product;
 
 public class Program8 {
     public static void main(String[] args) {
-        Set<Product> set = new TreeSet<>();
+        List<Product> list = new ArrayList<>();
 
-        set.add(new Product("TV", 900.0));
-        set.add(new Product("Notebook", 1200.0));
-        set.add(new Product("Tablet", 400.0));
+        list.add(new Product("TV", 900.0));
+        list.add(new Product("Notebook", 1200.0));
+        list.add(new Product("Tablet", 400.0));
 
-        for (Product p : set) {
+//        Comparator<Product> comp = new Comparator<Product>() {
+//            @Override
+//            public int compare(Product p1, Product p2) {
+//                return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+//            }
+//        };
+
+        list.sort(new MyComparator());
+
+        for (Product p : list) {
             System.out.println(p);
         }
     }
