@@ -40,12 +40,8 @@ public class Product {
         return Objects.hash(name, price);
     }
 
-    public static void staticVoidPriceUpdate(Product p) {
-        p.setPrice(p.getPrice() * 1.1);
-    }
-
-    public void nonStaticVoidPriceUpdate() {
-        setPrice(price * 1.1);
+    public static String staticUpperCaseName(Product p) {
+        return p.getName().toUpperCase();
     }
 
     @Override
