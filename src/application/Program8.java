@@ -12,7 +12,9 @@ public class Program8 {
         list.add(new Product("Notebook", 1200.0));
         list.add(new Product("Tablet", 400.0));
 
-        list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+        Comparator<Product> comp = Comparator.comparing(p -> p.getName().toUpperCase());
+
+        list.sort(comp);
 
         for (Product p : list) {
             System.out.println(p);
