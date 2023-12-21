@@ -1,6 +1,7 @@
 package application;
 
 import entities.Product;
+import util.PriceUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,8 @@ public class Program11 {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-        list.removeIf(p -> p.getPrice() >= 100);
+        list.forEach(new PriceUpdate());
 
-        for (Product p: list) {
-            System.out.println(p.getName() + ": " + p.getPrice());
-        }
+        list.forEach(System.out::println);
     }
 }
