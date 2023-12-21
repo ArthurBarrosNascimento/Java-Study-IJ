@@ -1,24 +1,26 @@
 
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-        Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
-        Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
+        Map<String, String> cookies = new TreeMap<>();
 
-        //union
-        Set<Integer> c = new TreeSet<>(a);
-        c.addAll(b);
-        System.out.println(c);
+        cookies.put("username", "Maria");
+        cookies.put("email", "maria@gmail.com");
+        cookies.put("phone", "11977776176");
 
-        //intersection
-        Set<Integer> d = new TreeSet<>(a);
-        d.retainAll(b);
-        System.out.println(d);
+        cookies.remove("email");
+        cookies.put("phone", "11977777661");
 
-        //difference
-        Set<Integer> e = new TreeSet<>(a);
-        e.removeAll(b);
-        System.out.println(e);
+        System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
+        System.out.println("Phone number: " + cookies.get("phone"));
+        System.out.println("Email: " + cookies.get("email"));
+        System.out.println("Size" + cookies.size());
+
+        System.out.println("All cookies");
+        for (String key: cookies.keySet()) {
+           System.out.println(key + ": " + cookies.get(key));
+        }
     }
 }   
