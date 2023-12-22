@@ -1,5 +1,3 @@
-# Java-Study-IJ
-
 # My Java Exercises Repository
 
 Welcome to my GitHub repository, where I've documented my progress and learning in Java. Here, you'll find a collection of exercises, activities, and projects that reflect my journey with the Java language.
