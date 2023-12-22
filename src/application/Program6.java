@@ -19,7 +19,7 @@ public class Program6 {
 
             while (employeeCsv != null) {
                 String[] fields = employeeCsv.split(",");
-                list.add(new Employee(fields[0], Double.parseDouble(fields[1])));
+                list.add(new Employee(fields[0], fields[1], Double.parseDouble(fields[2])));
                 employeeCsv = br.readLine();
             }
 
