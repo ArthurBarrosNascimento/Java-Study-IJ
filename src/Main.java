@@ -1,26 +1,23 @@
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        Map<String, String> cookies = new TreeMap<>();
+        List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
 
-        cookies.put("username", "Maria");
-        cookies.put("email", "maria@gmail.com");
-        cookies.put("phone", "11977776176");
+        Stream<Integer> st1 = list.stream().filter(x -> x % 2 != 0);
+        System.out.println(Arrays.toString(st1.toArray()));
 
-        cookies.remove("email");
-        cookies.put("phone", "11977777661");
+        Stream<String> st2 = Stream.of("Arthur", "Pedro", "Maria").sorted();
+        System.out.println(Arrays.toString(st2.toArray()));
 
-        System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
-        System.out.println("Phone number: " + cookies.get("phone"));
-        System.out.println("Email: " + cookies.get("email"));
-        System.out.println("Size" + cookies.size());
+        Stream<Integer> st3 = Stream.iterate(0, x -> x + 2);
+        System.out.println(Arrays.toString(st3.limit(10).toArray()));
 
-        System.out.println("All cookies");
-        for (String key: cookies.keySet()) {
-           System.out.println(key + ": " + cookies.get(key));
-        }
+        Stream<Long> st4 = Stream.iterate(new Long[] {0L, 1L}, p -> new Long[] {p[1], p[0] + p[1]})
+                .map(p -> p[0]);
+        System.out.println(Arrays.toString(st4.limit(10).toArray()));
     }
 }   
